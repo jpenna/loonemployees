@@ -9,7 +9,11 @@ class App extends Component {
   }
 
   render() {
-    return <HelloWorld title="Hello from React webpack" />;
+    return (
+      <div>
+        <button className="button is-primary">Meu botao</button>
+      </div>
+    );
   }
 }
 
