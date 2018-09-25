@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 export default () => (
-  <div>
+  <div className="section">
     <p className="has-text-centered title is-4">
       Page not found
     </p>

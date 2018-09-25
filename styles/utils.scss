@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+.no-clickable {
+  cursor: default;
+}
+
 .hover-highlight:hover {
   background-color: transparentize($link, 0.95);
 }

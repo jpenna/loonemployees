@@ -5,25 +5,38 @@ import PropTypes from 'prop-types';
 
 import { employeeItemType } from '../utils/types';
 
-const keyDown = (e, id, selectEmployee) => {
-  // If ENTER
-  if (e.keyCode === 13) selectEmployee({ id });
+const keyDown = ({ e, id, callback }) => {
+  // If ENTER or SPACE
+  if (e.keyCode === 13 || e.keyCode === 32) {
+    e.stopPropagation();
+    callback({ e, id });
+  }
 };
 
 export default function EmployeeItem(props) {
-  const { id, name, bio, avatar, selectEmployee, selectedEmployee, backgroundColor, onClickBio } = props;
+  const {
+    id,
+    name,
+    bio,
+    avatar,
+    selectEmployee,
+    selectedEmployee,
+    backgroundColor,
+    onClickBio,
+  } = props;
   const selected = selectedEmployee === id;
 
   return (
     <div
-      className={`box employee-item ${selected ? '' : 'clickable'}`}
+      className="box employee-item clickable"
       role={selected ? 'presentation' : 'button'}
       tabIndex={selected ? '' : '0'}
       onClick={e => selectEmployee({ e, id })}
-      onKeyDown={e => keyDown(e, id, selectEmployee)}
+      onKeyDown={e => keyDown({ e, id, callback: selectEmployee })}
       style={{ backgroundColor }}
     >
-      <div className="media">
+      {/* If selected, default cursor over content */}
+      <div className={`media ${selected ? 'no-clickable' : ''}`}>
         {avatar ? (
           <figure className="media-left">
             <p className="image is-64x64">
@@ -40,7 +53,7 @@ export default function EmployeeItem(props) {
                 role="button"
                 tabIndex={0}
                 onClick={e => onClickBio({ e, id })}
-                onKeyDown={e => onClickBio({ e, id })}
+                onKeyDown={e => keyDown({ e, id, callback: onClickBio })}
               >
                 {bio}
               </div>

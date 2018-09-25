@@ -17,6 +17,7 @@ class App extends Component {
   }
 
   onClickBio({ e, id }) {
+    e.stopPropagation();
     e.currentTarget.blur(); // Remove focus outline on click, but keep for accessibility
     const randomHsl = `hsla(${Math.random() * 360}, 60%, 80%, 0.4)`;
 
