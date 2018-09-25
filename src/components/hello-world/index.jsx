@@ -10,4 +10,8 @@ HelloWorld.propTypes = {
   title: PropTypes.string,
 };
 
+HelloWorld.defaultProps = {
+  title: 'hello world',
+};
+
 export default HelloWorld;

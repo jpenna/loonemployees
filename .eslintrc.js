@@ -5,5 +5,8 @@ module.exports = {
   },
   parserOptions: {
     allowImportExportEverywhere: true
+  },
+  rules: {
+    'arrow-body-style': 1,
   }
 };

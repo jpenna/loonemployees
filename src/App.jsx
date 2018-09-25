@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import HelloWorld from './components/hello-world';
 
 class App extends Component {
@@ -10,9 +12,11 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <button className="button is-primary">Meu botao</button>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/" component={HelloWorld} />
+        </Switch>
+      </Router>
     );
   }
 }

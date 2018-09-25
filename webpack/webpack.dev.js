@@ -1,3 +1,5 @@
+const { resolve } = require('path');
+const webpack = require('webpack');
 const commonPaths = require('./paths');
 
 module.exports = {
@@ -6,6 +8,15 @@ module.exports = {
     filename: '[name].js',
     path: commonPaths.outputPath,
     chunkFilename: '[name].js',
+    publicPath: '/',
+  },
+  devServer: {
+    hot: true,
+    contentBase: resolve(__dirname, commonPaths.outputPath),
+    publicPath: '/',
+    inline: true,
+    port: 5006,
+    historyApiFallback: true,
   },
   module: {
     rules: [
@@ -15,4 +26,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 };
