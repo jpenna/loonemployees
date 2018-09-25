@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import EmployeeList from './components/EmployeeList';
 import NotFound from './components/NotFound';
@@ -35,27 +35,25 @@ export class AppComponent extends Component {
     const { items } = this.state;
 
     return (
-      <Router>
-        <div className="app-container">
-          <div className="container app-content">
-            <Switch>
-              <Route
-                exact
-                path="/"
-                render={props => (
-                  <EmployeeList
-                    {...props}
-                    items={items}
-                    onClickBio={this.onClickBio}
-                  />
-                )}
-              />
-              <Route component={NotFound} />
-            </Switch>
-          </div>
-          <Footer />
+      <div className="app-container">
+        <div className="container app-content">
+          <Switch>
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <EmployeeList
+                  {...props}
+                  items={items}
+                  onClickBio={this.onClickBio}
+                />
+              )}
+            />
+            <Route component={NotFound} />
+          </Switch>
         </div>
-      </Router>
+        <Footer />
+      </div>
     );
   }
 }

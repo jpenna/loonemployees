@@ -1,10 +1,10 @@
 const path = require('path');
 
 module.exports = {
-  extends: ['airbnb', 'plugin:jest/recommended'],
+  extends: ['airbnb', 'plugin:mocha/recommended'],
   env: {
     browser: true,
-    'jest/globals': true
+    mocha: true
   },
   parserOptions: {
     ecmaVersion: 2018,
@@ -13,7 +13,7 @@ module.exports = {
       jsx: true
     }
   },
-  plugins: ['react', 'jest'],
+  plugins: ['react', 'mocha'],
   rules: {
     'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
   },

@@ -1,13 +1,13 @@
 /* eslint import/no-extraneous-dependencies: "off" */
 
 import React from 'react';
-import renderer from 'react-test-renderer';
+import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import { StaticRouter } from 'react-router-dom';
 
 import NotFound from '../../src/components/NotFound';
 
-describe('<App />', () => {
+describe.only('<App />', () => {
   let shallowed;
   const Component = (
     <StaticRouter location="/notFound" context={{}}>
@@ -15,13 +15,13 @@ describe('<App />', () => {
     </StaticRouter>
   );
 
-  beforeAll(() => {
+  before(() => {
     shallowed = shallow(Component);
   });
 
-  test('should have link to root', () => {
+  it('should have link to root', () => {
     const links = shallowed.find('a');
-    // console.log('link', links.length);
+    console.log('link', links.length);
 
     // expect(links).toHaveLength(1);
     // expect(links.first()).toHaveLength(1);
