@@ -7,7 +7,6 @@ module.exports = {
     '**/tests/**/*.test.js?(x)',
   ],
   browser: true,
-  verbose: true,
   moduleNameMapper: {
     '^.+\\.(css|scss)$': 'identity-obj-proxy',
   },
