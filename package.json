@@ -1,33 +1,16 @@
 {
-  "name": "HPPO",
+  "name": "employee-list",
   "version": "0.0.5",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack --progress --profile --colors",
     "format": "prettier --write 'packages/**/*.js'",
-    "test": "jest --watchAll --coverage"
-  },
-  "jest": {
-    "automock": false,
-    "testEnvironment": "node",
-    "moduleNameMapper": {
-      "\\.(css|scss)$": "identity-obj-proxy"
-    },
-    "transform": {
-      "^.+\\.(js|jsx)$": "babel-jest"
-    },
-    "setupTestFrameworkScriptFile": "<rootDir>/setupTests.js",
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "jsx"
-    ]
+    "test": "jest --expand --coverage",
+    "test-watch": "npm test -- --watchAll"
   },
   "repository": "https://github.com/HashemKhalifa/webpack-react-boilerplate",
-  "author": "HashemKhalifa",
-  "license": "ISC",
-  "private": false,
+  "author": "Juliano Penna",
   "engines": {
     "node": ">=8",
     "npm": ">=3"
@@ -38,14 +21,15 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
-    "react-hot-loader": "^4.3.4",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
+    "react-hot-loader": "^4.3.4",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.2",
+    "babel-jest": "^23.6.0",
     "browserslist": "4.0.1",
     "clean-webpack-plugin": "0.1.19",
     "cross-env": "5.2.0",

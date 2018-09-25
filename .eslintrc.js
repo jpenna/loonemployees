@@ -1,12 +1,20 @@
+const path = require('path');
+
 module.exports = {
-  extends: 'airbnb',
+  extends: ['airbnb', 'plugin:jest/recommended'],
   env: {
-    browser: true
+    browser: true,
+    'jest/globals': true
   },
   parserOptions: {
-    allowImportExportEverywhere: true
+    ecmaVersion: 6,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true
+    }
   },
+  plugins: ['react', 'jest'],
   rules: {
-    'arrow-body-style': 1,
-  }
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+  },
 };
