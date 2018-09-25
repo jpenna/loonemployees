@@ -5,9 +5,33 @@
 
   > .app-content {
     flex-grow: 1;
+    max-width: 100%;
   }
 }
 
 .footer {
   padding: 15px;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+
+.employee-item {
+  border: inherit;
+  font-size: inherit;
+  max-width: 100%;
+  cursor: pointer;
+
+
+  .media-content {
+    max-width: calc(100% - 80px);
+
+    &.expand {
+      max-width: 100%;
+    }
+  }
 }

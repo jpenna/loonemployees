@@ -22,7 +22,11 @@ class App extends Component {
         <div className="app-container">
           <div className="container app-content">
             <Switch>
-              <Route exact path="/" render={props => <EmployeeList {...props} items={items} />} />
+              <Route
+                exact
+                path="/"
+                render={props => <EmployeeList {...props} items={items} />}
+              />
               <Route component={NotFound} />
             </Switch>
           </div>

@@ -16,20 +16,23 @@
     "npm": ">=3"
   },
   "dependencies": {
+    "babel-core": "^7.0.0-bridge.0",
     "bulma": "^0.7.1",
     "node-sass": "^4.9.3",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-hot-loader": "^4.3.4",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "regenerator-runtime": "^0.12.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.2",
     "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "browserslist": "4.0.1",
     "clean-webpack-plugin": "0.1.19",
     "cross-env": "5.2.0",

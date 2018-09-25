@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-export const EmployeeItemType = {
+export const employeeItemType = {
   name: PropTypes.string.isRequired,
   bio: PropTypes.string,
   avatar: PropTypes.string,
