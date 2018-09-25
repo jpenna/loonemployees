@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import EmployeeList from './components/EmployeeList';
 import NotFound from './components/NotFound';
-import Header from './components/Header';
 import Footer from './components/Footer';
 
 import itemsJSON from './items.json';
@@ -20,12 +19,13 @@ class App extends Component {
 
     return (
       <Router>
-        <div>
-          <Header />
-          <Switch>
-            <Route exact path="/" render={props => <EmployeeList {...props} items={items} />} />
-            <Route component={NotFound} />
-          </Switch>
+        <div className="app-container">
+          <div className="container app-content">
+            <Switch>
+              <Route exact path="/" render={props => <EmployeeList {...props} items={items} />} />
+              <Route component={NotFound} />
+            </Switch>
+          </div>
           <Footer />
         </div>
       </Router>

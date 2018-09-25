@@ -1,1 +1,7 @@
+// Responsiveness
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+
 @import "../node_modules/bulma/bulma.sass";
+
+@import "./app.scss";
