@@ -1,14 +1,28 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-tabindex */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import { employeeItemType } from '../utils/types';
 
+const keyDown = (e, id, selectEmployee) => {
+  // If ENTER
+  if (e.keyCode === 13) selectEmployee({ id });
+};
+
 export default function EmployeeItem(props) {
-  const { id, name, bio, avatar, selectEmployee, selectedEmployee } = props;
-  const showBio = selectedEmployee === id;
+  const { id, name, bio, avatar, selectEmployee, selectedEmployee, backgroundColor, onClickBio } = props;
+  const selected = selectedEmployee === id;
 
   return (
-    <button type="button" className="box employee-item" onClick={e => selectEmployee(e, id)}>
+    <div
+      className={`box employee-item ${selected ? '' : 'clickable'}`}
+      role={selected ? 'presentation' : 'button'}
+      tabIndex={selected ? '' : '0'}
+      onClick={e => selectEmployee({ e, id })}
+      onKeyDown={e => keyDown(e, id, selectEmployee)}
+      style={{ backgroundColor }}
+    >
       <div className="media">
         {avatar ? (
           <figure className="media-left">
@@ -19,18 +33,29 @@ export default function EmployeeItem(props) {
         ) : null}
         <div className={`media-content ${avatar ? '' : 'expand'}`}>
           <div className="content">
-            <h3 className="title is-5">{name}</h3>
-            <p className={`${showBio ? '' : 'text-ellipsis'}`}>{bio}</p>
+            <h3 className="title is-5 mb-1">{name}</h3>
+            {selected ? (
+              <div
+                className="clickable hover-highlight"
+                role="button"
+                tabIndex={0}
+                onClick={e => onClickBio({ e, id })}
+                onKeyDown={e => onClickBio({ e, id })}
+              >
+                {bio}
+              </div>
+            ) : <p className="text-ellipsis">{bio}</p>}
           </div>
         </div>
       </div>
-    </button>
+    </div>
   );
 }
 
 EmployeeItem.propTypes = {
   ...employeeItemType,
   selectEmployee: PropTypes.func.isRequired,
+  onClickBio: PropTypes.func.isRequired,
   selectedEmployee: PropTypes.number,
 };
 

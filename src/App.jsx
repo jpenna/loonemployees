@@ -12,6 +12,22 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = { items: itemsJSON };
+
+    this.onClickBio = this.onClickBio.bind(this);
+  }
+
+  onClickBio({ e, id }) {
+    e.currentTarget.blur(); // Remove focus outline on click, but keep for accessibility
+    const randomHsl = `hsla(${Math.random() * 360}, 60%, 80%, 0.4)`;
+
+    this.setState((prevState) => {
+      const { items: prevItems } = prevState;
+      const items = [...prevItems];
+      const index = items.findIndex(i => i.id === id);
+      const item = { ...items[index], backgroundColor: randomHsl };
+      items[index] = item;
+      return { items };
+    });
   }
 
   render() {
@@ -25,7 +41,13 @@ class App extends Component {
               <Route
                 exact
                 path="/"
-                render={props => <EmployeeList {...props} items={items} />}
+                render={props => (
+                  <EmployeeList
+                    {...props}
+                    items={items}
+                    onClickBio={this.onClickBio}
+                  />
+                )}
               />
               <Route component={NotFound} />
             </Switch>

@@ -14,13 +14,19 @@ export default class EmployeeList extends Component {
     this.selectEmployee = this.selectEmployee.bind(this);
   }
 
-  selectEmployee(e, id) {
-    e.currentTarget.blur(); // hide the outline on click, but keep it for accessibility
-    this.setState({ selectedEmployee: id });
+  selectEmployee({ e, id }) {
+    e.currentTarget.blur(); // Remove focus outline on click, but keep for accessibility
+    // If box clicked again... (checking here because e is lost in the callback below)
+    const sameElem = e.currentTarget === e.target;
+    this.setState((prevState) => {
+      let select = id;
+      if (sameElem && prevState.selectedEmployee === id) select = null;
+      return { selectedEmployee: select };
+    });
   }
 
   render() {
-    const { items } = this.props;
+    const { items, onClickBio } = this.props;
     const { selectedEmployee } = this.state;
 
     return (
@@ -32,6 +38,7 @@ export default class EmployeeList extends Component {
             {...item}
             selectEmployee={this.selectEmployee}
             selectedEmployee={selectedEmployee}
+            onClickBio={onClickBio}
           />
         ))}
       </div>
@@ -43,4 +50,5 @@ export default class EmployeeList extends Component {
 EmployeeList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(employeeItemType))
     .isRequired,
+  onClickBio: PropTypes.func.isRequired,
 };

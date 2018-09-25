@@ -1,0 +1,13 @@
+.clickable {
+  cursor: pointer;
+}
+
+.hover-highlight:hover {
+  background-color: transparentize($link, 0.95);
+}
+
+
+// Single mods
+.mb-1 {
+  margin-bottom: 1rem !important;
+}
