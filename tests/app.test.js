@@ -4,22 +4,22 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { shallow } from 'enzyme';
 
-import App from 'src/app';
-import HelloWorld from 'src/components/hello-world';
+import { AppComponent } from '../src/App';
+import Footer from '../src/components/Footer';
 
 describe('<App />', () => {
   let shallowed;
 
   beforeAll(() => {
-    shallowed = shallow(<App />);
+    shallowed = shallow(<AppComponent />);
   });
 
-  it('should have <HelloWorld /> component', () => {
-    expect(shallowed.contains(<HelloWorld />)).toBeTruthy();
+  test('should have <Footer /> component', () => {
+    expect(shallowed.contains(<Footer />)).toBeTruthy();
   });
 
-  it('should render correctly', () => {
-    const rendered = renderer.create(<App />).toJSON();
+  test('should render correctly', () => {
+    const rendered = renderer.create(<AppComponent />).toJSON();
     expect(rendered).toMatchSnapshot();
   });
 });

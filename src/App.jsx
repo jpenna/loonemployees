@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 
 import itemsJSON from './items.json';
 
-class App extends Component {
+export class AppComponent extends Component {
   constructor(props) {
     super(props);
     this.state = { items: itemsJSON };
@@ -60,4 +60,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)(App);
+export default hot(module)(AppComponent);

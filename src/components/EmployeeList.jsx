@@ -44,7 +44,6 @@ export default class EmployeeList extends Component {
       </div>
     );
   }
-
 }
 
 EmployeeList.propTypes = {

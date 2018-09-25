@@ -1,4 +1,0 @@
-{
-  "presets": ["@babel/preset-react"],
-  "plugins": ["react-hot-loader/babel", "transform-object-rest-spread"]
-}

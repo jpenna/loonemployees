@@ -6,8 +6,9 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack --progress --profile --colors",
     "format": "prettier --write 'packages/**/*.js'",
-    "test": "jest --expand --coverage",
-    "test-watch": "npm test -- --watchAll"
+    "test": "jest --expand",
+    "test-watch": "npm test -- --watchAll",
+    "test-coverage": "npm test -- --coverage"
   },
   "repository": "https://github.com/HashemKhalifa/webpack-react-boilerplate",
   "author": "Juliano Penna",
@@ -16,7 +17,7 @@
     "npm": ">=3"
   },
   "dependencies": {
-    "babel-core": "^7.0.0-bridge.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "bulma": "^0.7.1",
     "node-sass": "^4.9.3",
     "prop-types": "^15.6.2",
@@ -27,11 +28,13 @@
     "regenerator-runtime": "^0.12.1"
   },
   "devDependencies": {
+    "babel-core": "^7.0.0-bridge.0",
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.2",
+    "@babel/plugin-transform-runtime": "^7.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "browserslist": "4.0.1",
     "clean-webpack-plugin": "0.1.19",
