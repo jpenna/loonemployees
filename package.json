@@ -5,7 +5,9 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack --progress --profile --colors",
-    "test": "NODE_ENV=test mocha --require @babel/register --require ./setupTests --recursive --reporter=list --watch"
+    "test-base": "NODE_ENV=test mocha --require @babel/register --require ./setupTests --recursive --reporter=list",
+    "test": "npm run test-base -- --watch",
+    "coverage": "nyc -- npm run test-base"
   },
   "author": "Juliano Penna",
   "dependencies": {
@@ -53,6 +55,7 @@
     "lint-staged": "^7.2.0",
     "mini-css-extract-plugin": "^0.4.1",
     "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
     "pretty-quick": "^1.6.0",
     "sass-loader": "^7.1.0",
     "sinon": "^6.3.4",
