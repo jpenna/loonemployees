@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import EmployeeItem from './EmployeeItem';
 import { employeeItemType } from '../utils/types';
 
+/* istanbul ignore next */
 export default class EmployeesList extends Component {
   constructor(props) {
     super(props);

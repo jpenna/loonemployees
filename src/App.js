@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 
 import itemsJSON from './items.json';
 
+/* istanbul ignore next */
 export class AppComponent extends Component {
   constructor(props) {
     super(props);

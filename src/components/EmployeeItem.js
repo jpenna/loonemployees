@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-tabindex */
-
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -37,6 +35,7 @@ export default function EmployeeItem(props) {
     >
       {/* If selected, default cursor over content */}
       <div className={`media ${selected ? 'no-clickable' : ''}`}>
+
         {avatar ? (
           <figure className="media-left">
             <p className="image is-64x64">
@@ -44,9 +43,11 @@ export default function EmployeeItem(props) {
             </p>
           </figure>
         ) : null}
+
         <div className={`media-content ${avatar ? '' : 'expand'}`}>
           <div className="content">
             <h3 className="title is-5 mb-1">{name}</h3>
+
             {selected ? (
               <button
                 type="button"
@@ -56,9 +57,13 @@ export default function EmployeeItem(props) {
               >
                 {bio}
               </button>
-            ) : <p className="text-ellipsis">{bio}</p>}
+            ) : (
+              <p className="text-ellipsis">{bio}</p>
+            )}
+
           </div>
         </div>
+
       </div>
     </button>
   );
