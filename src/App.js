@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import { Route, Switch } from 'react-router-dom';
 
-import EmployeeList from './components/EmployeeList';
+import EmployeesList from './components/EmployeesList';
 import NotFound from './components/NotFound';
 import Footer from './components/Footer';
 
@@ -42,7 +42,7 @@ export class AppComponent extends Component {
               exact
               path="/"
               render={props => (
-                <EmployeeList
+                <EmployeesList
                   {...props}
                   items={items}
                   onClickBio={this.onClickBio}

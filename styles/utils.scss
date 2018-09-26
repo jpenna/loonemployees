@@ -7,9 +7,24 @@
 }
 
 .hover-highlight:hover {
-  background-color: transparentize($link, 0.95);
+  background-color: transparentize($link, 0.9);
 }
 
+.text-ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.no-button {
+  background: inherit;
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  text-align: inherit;
+}
 
 // Single mods
 .mb-1 {

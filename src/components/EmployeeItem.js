@@ -27,10 +27,10 @@ export default function EmployeeItem(props) {
   const selected = selectedEmployee === id;
 
   return (
-    <div
-      className="box employee-item clickable"
+    <button
+      type="button"
       role={selected ? 'presentation' : 'button'}
-      tabIndex={selected ? '' : '0'}
+      className="box employee-item clickable"
       onClick={e => selectEmployee({ e, id })}
       onKeyDown={e => keyDown({ e, id, callback: selectEmployee })}
       style={{ backgroundColor }}
@@ -48,20 +48,20 @@ export default function EmployeeItem(props) {
           <div className="content">
             <h3 className="title is-5 mb-1">{name}</h3>
             {selected ? (
-              <div
-                className="clickable hover-highlight"
-                role="button"
+              <button
+                type="button"
+                className="clickable hover-highlight no-button"
                 tabIndex={0}
                 onClick={e => onClickBio({ e, id })}
                 onKeyDown={e => keyDown({ e, id, callback: onClickBio })}
               >
                 {bio}
-              </div>
+              </button>
             ) : <p className="text-ellipsis">{bio}</p>}
           </div>
         </div>
       </div>
-    </div>
+    </button>
   );
 }
 
