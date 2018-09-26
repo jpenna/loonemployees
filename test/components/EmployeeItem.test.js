@@ -1,5 +1,3 @@
-/* eslint import/no-extraneous-dependencies: "off" */
-
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
@@ -29,10 +27,11 @@ describe('<EmployeeItem />', () => {
   };
 
   before(() => {
+    resetVars();
     shallowed = shallow(<EmployeeItem {...props} />);
   });
 
-  beforeEach(() => {
+  afterEach(() => {
     resetVars();
     shallowed.setProps(props);
   });
