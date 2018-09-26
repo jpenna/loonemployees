@@ -2,13 +2,13 @@
 
 import React from 'react';
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
+import { render } from 'enzyme';
 import { StaticRouter } from 'react-router-dom';
 
 import NotFound from '../../src/components/NotFound';
 
-describe.only('<App />', () => {
-  let shallowed;
+describe('<NotFound />', () => {
+  let rendered;
   const Component = (
     <StaticRouter location="/notFound" context={{}}>
       <NotFound />
@@ -16,14 +16,12 @@ describe.only('<App />', () => {
   );
 
   before(() => {
-    shallowed = shallow(Component);
+    rendered = render(Component);
   });
 
   it('should have link to root', () => {
-    const links = shallowed.find('a');
-    console.log('link', links.length);
-
-    // expect(links).toHaveLength(1);
-    // expect(links.first()).toHaveLength(1);
+    const links = rendered.find('a');
+    expect(links).to.have.length(1);
+    expect(links.first().attr('href')).to.equal('/');
   });
 });

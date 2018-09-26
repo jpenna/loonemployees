@@ -8,7 +8,7 @@ import { StaticRouter } from 'react-router-dom';
 import { AppComponent } from '../src/App';
 import Footer from '../src/components/Footer';
 
-describe('<App />', () => {
+describe.skip('<App />', () => {
   let mounted;
   const Component = (
     <StaticRouter location="/" context={{}}>
