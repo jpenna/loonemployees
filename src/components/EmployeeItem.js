@@ -51,7 +51,6 @@ export default function EmployeeItem(props) {
               <button
                 type="button"
                 className="clickable hover-highlight no-button"
-                tabIndex={0}
                 onClick={e => onClickBio({ e, id })}
                 onKeyDown={e => keyDown({ e, id, callback: onClickBio })}
               >
