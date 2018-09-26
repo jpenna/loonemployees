@@ -35,9 +35,8 @@ describe('<EmployeesList />', () => {
       let func;
       let instance;
       const currentTarget = { blur: sinon.fake() };
-      const id = 1;
       const args = {
-        id,
+        id: 1,
         e: {
           currentTarget,
           target: 'other',
@@ -61,7 +60,7 @@ describe('<EmployeesList />', () => {
 
       it('should select employee`s ID if different from previous selected', () => {
         func(args);
-        expect(instance.state.selectedEmployee).to.equal(id);
+        expect(instance.state.selectedEmployee).to.equal(args.id);
       });
 
       it('should clear selected employee if clicked on box and ID is not new', () => {

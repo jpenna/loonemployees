@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import EmployeeItem from './EmployeeItem';
 import { employeeItemType } from '../utils/types';
 
-export default class EmployeeList extends Component {
+export default class EmployeesList extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,7 +46,7 @@ export default class EmployeeList extends Component {
   }
 }
 
-EmployeeList.propTypes = {
+EmployeesList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(employeeItemType))
     .isRequired,
   onClickBio: PropTypes.func.isRequired,
